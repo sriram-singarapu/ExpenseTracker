@@ -1,5 +1,7 @@
+import React from "react";
 import ExpenseItem from "./ExpenseItem";
 import "./Expenses.css";
+//import Card from "../UI/Card";
 
 function Expenses(props) {
   return (
@@ -10,7 +12,7 @@ function Expenses(props) {
             key={expense.id}
             date={expense.date}
             title={expense.title}
-            price={expense.title}
+            price={expense.price}
           ></ExpenseItem>
         );
       })}
