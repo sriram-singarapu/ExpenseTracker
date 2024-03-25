@@ -8,7 +8,7 @@ const ExpensesList = (props) => {
       key={expense.id}
       date={expense.date}
       title={expense.title}
-      price={expense.price}
+      amount={expense.amount}
     ></ExpenseItem>
   ));
   if (props.items.length === 0) {

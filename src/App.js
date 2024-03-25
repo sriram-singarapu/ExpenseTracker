@@ -1,14 +1,32 @@
 import React, { useState } from "react";
+
 import NewExpense from "./components/NewExpense/NewExpense";
 import Expenses from "./components/Expenses/Expenses";
 
-function App() {
-  const [expenses, setExpenses] = useState([
-    { id: "1", date: new Date(2024, 7, 15), title: "Insurance", price: 100 },
-    { id: "2", date: new Date(2024, 3, 25), title: "Book", price: 10 },
-    { id: "3", date: new Date(2024, 10, 11), title: "Pen", price: 1 },
-    { id: "4", date: new Date(2024, 1, 14), title: "Laptop", price: 200 },
-  ]);
+const DUMMY_EXPENSES = [
+  {
+    id: "e1",
+    title: "Pen",
+    amount: 94.12,
+    date: new Date(2024, 7, 14),
+  },
+  { id: "e2", title: "New TV", amount: 799.49, date: new Date(2024, 2, 12) },
+  {
+    id: "e3",
+    title: "Book",
+    amount: 294.67,
+    date: new Date(2024, 2, 28),
+  },
+  {
+    id: "e4",
+    title: "Chocolate",
+    amount: 450,
+    date: new Date(2024, 5, 12),
+  },
+];
+
+const App = () => {
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
   const addExpenseHandler = (expense) => {
     setExpenses((prevExpenses) => {
@@ -16,12 +34,19 @@ function App() {
     });
   };
 
+  // return React.createElement(
+  //   'div',
+  //   {},
+  //   React.createElement('h2', {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
+  // );
+
   return (
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses expenses={expenses}></Expenses>
+      <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;
