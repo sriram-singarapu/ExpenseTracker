@@ -3,7 +3,7 @@ import "./ExpenseForm.css";
 
 const ExpenseForm = (props) => {
   const [enteredTitle, setEnteredTitle] = useState("");
-  const [enteredAmount, setEnteredAmount] = useState("");
+  const [enteredPrice, setEnteredPrice] = useState("");
   const [enteredDate, setEnteredDate] = useState("");
 
   const titleChangeHandler = (event) => {
@@ -11,7 +11,7 @@ const ExpenseForm = (props) => {
   };
 
   const amountChangeHandler = (event) => {
-    setEnteredAmount(event.target.value);
+    setEnteredPrice(event.target.value);
   };
 
   const dateChangeHandler = (event) => {
@@ -23,13 +23,13 @@ const ExpenseForm = (props) => {
 
     const expenseData = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: enteredPrice,
       date: new Date(enteredDate),
     };
     props.onSaveExpenseData(expenseData);
-    setEnteredAmount("");
-    setEnteredDate("");
     setEnteredTitle("");
+    setEnteredPrice("");
+    setEnteredDate("");
   };
 
   return (
@@ -44,10 +44,10 @@ const ExpenseForm = (props) => {
           />
         </div>
         <div className="new-expense__control">
-          <label>Amount</label>
+          <label>Price</label>
           <input
             type="number"
-            value={enteredAmount}
+            value={enteredPrice}
             onChange={amountChangeHandler}
           />
         </div>
@@ -63,6 +63,9 @@ const ExpenseForm = (props) => {
         </div>
       </div>
       <div className="new-expense__actions">
+        <button type="button" onClick={props.onCancel}>
+          Cancel
+        </button>
         <button type="submit">Add Expense</button>
       </div>
     </form>

@@ -1,4 +1,3 @@
-// Expenses.js
 import React, { useState } from "react";
 import "./Expenses.css";
 import ExpensesFilter from "./ExpensesFilter";
@@ -19,7 +18,7 @@ function Expenses(props) {
     <div className="expenses">
       <ExpensesFilter
         selected={filteredYear}
-        onChangeFilter={filterChangeHandler} // Corrected prop name
+        onChangeFilter={filterChangeHandler}
       ></ExpensesFilter>
       <ExpensesList items={filteredExpenses} />
     </div>
